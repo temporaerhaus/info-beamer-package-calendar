@@ -63,10 +63,9 @@ local function check_next_talk()
     for idx = 1, #schedule do
         local talk = schedule[idx]
 
-        -- Just started?
+        -- Now running?
         if now > talk.start_unix and 
-           now < talk.end_unix and
-           talk.start_unix + 15 * 60 > now
+           now < talk.end_unix
         then
            next_talks[#next_talks+1] = talk
         end
@@ -90,10 +89,10 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
     local E = ends
 
     local date_size = title_size
-    local info_size = math.floor(title_size * 0.8)
+    local info_size = math.floor(title_size * 0.85)
     local time_size = info_size
 
-    local split_x = font:width("In 60 min", title_size)*1.5
+    local split_x = font:width("Bis 20:15", title_size)*1.5
 
     local x, y = 0, 0
 
@@ -102,9 +101,9 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
     end
 
     if #schedule == 0 then
-        text(split_x, y, "Fetching talks...", title_size, rgba(default_color,1))
+        text(split_x, y, "Fetching events...", title_size, rgba(default_color,1))
     elseif #next_talks == 0 and #schedule > 0 and sys.now() > 30 then
-        text(split_x, y, "No more talks :(", title_size, rgba(default_color,1))
+        text(split_x, y, "No events in calendar :(", title_size, rgba(default_color,1))
     end
 
     local now = api.clock.unix()
