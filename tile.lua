@@ -121,17 +121,12 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
             font, info_size, a.width - split_x
         )
 
-        local info_text = talk.place .. ", von/mit " .. table.concat(talk.speakers, ", ")
+        local info_text = talk.place .. ", von/mit "
         if #talk.speakers == 0 then
             info_text = talk.place
         end
 
-        local info_lines = wrap(
-            info_text, 
-            font, info_size, a.width - split_x
-        )
-
-        if y + #title_lines * title_size + #subtitle_lines * info_size + #info_lines * info_size > a.height then
+        if y + #title_lines * title_size + #subtitle_lines * info_size + info_size > a.height then
             break
         end
 
@@ -189,9 +184,10 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
 
 
         -- info
-        for idx = 1, #info_lines do
-            text(x+split_x, y, info_lines[idx], info_size, rgba(default_color,.8))
-            y = y + info_size
+        text(x+split_x, y, info_text, info_size, rgba(default_color,.8))
+        if #talk.speakers > 0 then
+            local w = font:width(info_text, info_size)
+            a.add(anims.moving_font_list(S, E, x+split_x+w+5, y, talk.speakers, info_size, rgba(default_color,.8)))
         end
 
         y = y + 40

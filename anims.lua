@@ -155,6 +155,23 @@ function M.moving_font(S, E, font, x, y, text, size, r, g, b, a)
     )
 end
 
+function M.moving_font_list(S, E, x, y, texts, size, r, g, b, a)
+    return move_in_move_out(S, E, x, y, 
+        rotating_entry_exit(S, E, function(t)
+            local alpha = 1
+            local text = texts[math.floor((t+0.5) % #texts + 1)]
+            if #texts > 1 then
+                local rot = (180 * t + 90) % 180 - 90
+                alpha = math.sqrt(math.abs(math.cos(t * math.pi)))
+                gl.translate(0, size/2)
+                gl.rotate(rot, 1, 0, 0)
+                gl.translate(0, -size/2)
+            end
+            return font:write(0, 0, text, size, r, g, b, a*alpha)
+        end)
+    )
+end
+
 function M.moving_image_raw(S, E, img, x1, y1, x2, y2, a)
     a = a or 1
     local alpha = make_smooth{
