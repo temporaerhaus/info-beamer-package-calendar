@@ -128,7 +128,7 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
         )
 
         local info_text = talk.place .. ", von/mit " .. table.concat(talk.speakers, ", ")
-        if #talk.speakers == 0
+        if #talk.speakers == 0 then
             info_text = talk.place
         end
 
