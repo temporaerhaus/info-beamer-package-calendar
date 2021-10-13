@@ -1,0 +1,45 @@
+{
+    "name": "Plugin: Modified Frab",
+    "permissions": {
+        "network": "Has to fetch schedule from remote site"
+    },
+    "options": [{
+        "title": "Frab Conference Plugin",
+        "type": "section"
+    },
+
+    {
+        "title": "Scheduling",
+        "type": "section"
+    },{
+        "title": "Time Zone",
+        "ui_width": 4,
+        "name": "timezone",
+        "type": "select",
+        "hint": "The timezone",
+        "options": [
+            ["UTC", "UTC"],
+            ["Europe/Berlin", "Europa / Berlin"],
+            ["US/Central", "US / Central"],
+            ["US/Eastern", "US / Eastern"],
+            ["US/Michigan", "US / Michigan"],
+            ["US/Mountain", "US / Mountain"],
+            ["US/Pacific", "US / Pacific"]
+        ],
+        "default": "UTC"
+    }, {
+        "title": "Fahrplan Urls",
+        "name": "schedule_urls",
+        "doc_link": true,
+        "type": "list",
+        "itemname": "Url",
+        "hint": "List all fahrplans. They will be merged",
+        "items": [{
+            "title": "Url",
+            "ui_width": 9,
+            "name": "url",
+            "type": "string",
+            "default": "http://localhost/"
+        }]
+    }]
+}

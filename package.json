@@ -1,0 +1,17 @@
+{
+    "name": "VSH: modified frab calendar",
+    "author": "robbi5 <infobeamer@robbi5.de>",
+    "desc": "Modified Frab calendar view",
+    "repository": "https://github.com/verschwoerhaus/ib-frab-calendar",
+    "platforms": ["pi/epoch-1", "pi/epoch-2"],
+    "nesting": {
+      "parents": [
+        "scheduled-plugin"
+      ]
+    },
+    "lifecycle": "alpha",
+    "offline": {
+      "support": "no",
+      "info": "This packages needs to reach the calendar to work"
+    }
+}
