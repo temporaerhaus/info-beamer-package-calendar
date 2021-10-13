@@ -127,8 +127,13 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
             font, info_size, a.width - split_x
         )
 
+        local info_text = talk.place .. ", von/mit " .. table.concat(talk.speakers, ", ")
+        if #talk.speakers == 0
+            info_text = talk.place
+        end
+
         local info_lines = wrap(
-            talk.place .. ", von/mit " .. table.concat(talk.speakers, ", "), 
+            info_text, 
             font, info_size, a.width - split_x
         )
 
@@ -167,7 +172,7 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
 
         -- subtitle
         for idx = 1, #subtitle_lines do
-            text(x+split_x, y, subtitle_lines[idx], info_size, rgba(default_color,0))
+            text(x+split_x, y, subtitle_lines[idx], info_size, rgba(default_color,1))
             y = y + info_size
         end
         y = y + 3
