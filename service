@@ -40,7 +40,7 @@ def main():
         events = []
         for schedule in config.schedule_urls:
             print >>sys.stderr, "fetching %s" % schedule['url']
-            events.extend(importer.get_schedule(schedule['url'], schedule['group']))
+            events.extend(importer.get_schedule(schedule['url']))
             print >>sys.stderr, "done. now ", len(events)
 
         if not events:

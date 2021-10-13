@@ -6,7 +6,7 @@ from datetime import timedelta
 import dateutil.parser
 import defusedxml.ElementTree as ET
 
-def get_schedule(url, group):
+def get_schedule(url):
     def load_events(xml):
         def to_unixtimestamp(dt):
             dt = dt.astimezone(pytz.utc)
@@ -57,7 +57,6 @@ def get_schedule(url, group):
                 ] if persons else [],
                 lang = text_or_empty(event, 'language'),
                 id = event.attrib["id"],
-                group = group,
             ))
         return parsed_events
 
