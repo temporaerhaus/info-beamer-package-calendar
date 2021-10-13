@@ -2,7 +2,7 @@ local api, CHILDS, CONTENTS = ...
 
 local json = require "json"
 local helper = require "helper"
-local anims = require(api.localized "anims")
+local anims = require(api.localized("anims"))
 
 local font, info_font
 local white = resource.create_colored_texture(1,1,1)
