@@ -7,6 +7,12 @@
         "title": "Frab Event Calendar Plugin",
         "type": "section"
     }, {
+        "title": "Font",
+        "ui_width": 4,
+        "name": "font",
+        "type": "font",
+        "default": "font.ttf"
+    }, {
         "title": "Time Zone",
         "ui_width": 4,
         "name": "timezone",

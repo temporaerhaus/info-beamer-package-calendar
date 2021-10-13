@@ -4,8 +4,7 @@ local json = require "json"
 local helper = require "helper"
 local anims = require(api.localized("anims"))
 
-local font, info_font
-local white = resource.create_colored_texture(1,1,1)
+local font
 
 local schedule = {}
 local next_talks = {}
@@ -18,8 +17,7 @@ local function rgba(base, a)
 end
 
 function M.updated_config_json(config)
-    font = resource.load_font(api.localized("font.ttf"))
-    info_font = resource.load_font(api.localized("font.ttf"))
+    font = resource.load_font(api.localized(config.font.asset_name))
 end
 
 function M.updated_schedule_json(new_schedule)
