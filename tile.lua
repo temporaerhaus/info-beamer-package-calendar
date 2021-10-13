@@ -139,7 +139,12 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
         local first_line_y = y
 
         -- date
-        local date = talk.start_date
+        local date
+        if now > talk.start_unix and now < talk.end_unix then
+            date = "Jetzt"
+        else
+            date = talk.start_date
+        end
         local w = font:width(date, date_size)+date_size
         text(x+split_x-w, y, date, date_size, rgba(default_color, 1))
 
@@ -148,20 +153,12 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
         -- time
         local time
         local til = talk.start_unix - now
-        if til > -60 and til < 60 then
-            time = "Now"
-            local w = font:width(time, time_size)+time_size
-            text(x+split_x-w, y, time, time_size, 0,.6,0.57,1)
-        elseif til > 0 and til < 15 * 60 then
-            time = string.format("In %d min", math.floor(til/60))
-            local w = font:width(time, time_size)+time_size
-            text(x+split_x-w, y, time, time_size, 0,.6,0.57,1)
-        elseif talk.start_unix > now then
+        if talk.start_unix > now then
             time = talk.start_str
             local w = font:width(time, time_size)+time_size
             text(x+split_x-w, y, time, time_size, rgba(default_color, 1))
         else
-            time = string.format("%d min ago", math.ceil(-til/60))
+            time = "Bis " .. talk.end_str
             local w = font:width(time, time_size)+time_size
             text(x+split_x-w, y, time, time_size, rgba(default_color,.8))
         end

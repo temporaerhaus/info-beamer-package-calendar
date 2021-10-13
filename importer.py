@@ -42,11 +42,11 @@ def get_schedule(url):
 
             parsed_events.append(dict(
                 start = start.astimezone(pytz.utc),
-                start_str = start.strftime('%H:%M'),
-                start_weekday = start.weekday(),
                 start_date = start.strftime('%-d.%-m.'),
-                end_str = end.strftime('%H:%M'),
+                start_str = start.strftime('%H:%M'),
                 start_unix  = to_unixtimestamp(start),
+                start_weekday = start.weekday(),
+                end_str = end.strftime('%H:%M'),
                 end_unix = to_unixtimestamp(end),
                 duration = int(duration.total_seconds() / 60),
                 title = text_or_empty(event, 'title'),

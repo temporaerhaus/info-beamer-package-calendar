@@ -69,6 +69,7 @@ def main():
                 track = event['track'],
                 start_unix = event['start_unix'],
                 end_unix = event['end_unix'],
+                end_str = event['end_str'],
                 id = event['id'],
             ) for event in sorted(events, key=itemgetter('start_unix'))
         ])
