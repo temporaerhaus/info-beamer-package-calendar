@@ -65,6 +65,7 @@ def main():
                 start_date = event['start_date'],
                 start_weekday = weekdays_local[event['start_weekday']],
                 title = event['title'],
+                subtitle = event['subtitle'],
                 track = event['track'],
                 start_unix = event['start_unix'],
                 end_unix = event['end_unix'],

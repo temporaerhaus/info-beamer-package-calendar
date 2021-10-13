@@ -6,7 +6,6 @@ local anims = require(api.localized "anims")
 
 local font, info_font
 local white = resource.create_colored_texture(1,1,1)
-local fallback_track_background = resource.create_colored_texture(.5,.5,.5,1)
 
 local schedule = {}
 local next_talks = {}
@@ -26,13 +25,6 @@ end
 function M.updated_schedule_json(new_schedule)
     print "new schedule"
     schedule = new_schedule
-    for idx = #schedule, 1, -1 do
-        local talk = schedule[idx]
-        talk.track = {
-            name = talk.track,
-            background = fallback_track_background,
-        }
-    end
 end
 
 local function wrap(str, font, size, max_w)
@@ -130,12 +122,17 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
             font, title_size, a.width - split_x
         )
 
-        local info_lines = wrap(
-            talk.place .. " with " .. table.concat(talk.speakers, ", "), 
+        local subtitle_lines = wrap(
+            talk.subtitle,
             font, info_size, a.width - split_x
         )
 
-        if y + #title_lines * title_size + info_size > a.height then
+        local info_lines = wrap(
+            talk.place .. ", von/mit " .. table.concat(talk.speakers, ", "), 
+            font, info_size, a.width - split_x
+        )
+
+        if y + #title_lines * title_size + #subtitle_lines * info_size + #info_lines * info_size > a.height then
             break
         end
 
@@ -160,17 +157,18 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
             text(x+split_x-w, y, time, time_size, rgba(default_color,.8))
         end
 
-        -- track bar
-        a.add(anims.moving_image_raw(
-            S, E, talk.track.background,
-            x+split_x-25, y, x+split_x-12,
-            y + title_size*#title_lines + 3 + #info_lines*info_size
-        ))
 
         -- title
         for idx = 1, #title_lines do
             text(x+split_x, y, title_lines[idx], title_size, rgba(default_color,1))
             y = y + title_size
+        end
+        y = y + 3
+
+        -- subtitle
+        for idx = 1, #subtitle_lines do
+            text(x+split_x, y, subtitle_lines[idx], info_size, rgba(default_color,0))
+            y = y + info_size
         end
         y = y + 3
 

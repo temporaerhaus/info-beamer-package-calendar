@@ -50,6 +50,7 @@ def get_schedule(url):
                 end_unix = to_unixtimestamp(end),
                 duration = int(duration.total_seconds() / 60),
                 title = text_or_empty(event, 'title'),
+                subtitle = text_or_empty(event, 'subtitle'),
                 track = text_or_empty(event, 'track'),
                 place = text_or_empty(event, 'room'),
                 abstract = text_or_empty(event, 'abstract'),
