@@ -2,14 +2,10 @@ var config = {
   props: ['config'],
   template: `
     <div>
-      <h4>Frab Plugin</h4>
+      <h4>Frab Event Calendar Plugin</h4>
       <div class='row'>
         <div class='col-xs-3'>
-          <select class='btn btn-default' v-model="mode">
-            <option value="all_talks">All Talks</option>
-          </select>
-        </div>
-        <div class='col-xs-3'>
+          <label class="field-label">Font size</label>
           <select class='btn btn-default' v-model="font_size">
             <option value="40">40px</option>
             <option value="50">50px</option>
@@ -27,7 +23,6 @@ var config = {
     </div>
   `,
   computed: {
-    mode: ChildTile.config_value('mode', 'all_talks'),
     font_size: ChildTile.config_value('font_size', 70, parseInt),
   }
 }

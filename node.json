@@ -1,10 +1,10 @@
 {
-    "name": "Plugin: Modified Frab",
+    "name": "Plugin: Frab Event Calendar",
     "permissions": {
         "network": "Has to fetch schedule from remote site"
     },
     "options": [{
-        "title": "Event Calendar Plugin",
+        "title": "Frab Event Calendar Plugin",
         "type": "section"
     }, {
         "title": "Time Zone",
@@ -37,10 +37,10 @@
         "name": "schedule_urls",
         "doc_link": true,
         "type": "list",
-        "itemname": "Url",
+        "itemname": "URL",
         "hint": "List all fahrplan.xml (frab style). They will be merged",
         "items": [{
-            "title": "Url",
+            "title": "URL",
             "ui_width": 9,
             "name": "url",
             "type": "string",

@@ -1,8 +1,8 @@
 {
-    "name": "VSH: modified frab calendar",
+    "name": "Frab based event calendar",
     "author": "robbi5 <infobeamer@robbi5.de>",
-    "desc": "Modified Frab calendar view",
-    "repository": "https://github.com/verschwoerhaus/ib-frab-calendar",
+    "desc": "Frab based event calendar plugin for the scheduled player",
+    "repository": "https://github.com/verschwoerhaus/info-beamer-package-calendar",
     "platforms": ["pi/epoch-1", "pi/epoch-2"],
     "nesting": {
       "parents": [
