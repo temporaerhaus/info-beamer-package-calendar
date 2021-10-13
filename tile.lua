@@ -141,19 +141,14 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
             break
         end
 
+        local first_line_y = y
+
         -- date
         local date = talk.start_date
         local w = font:width(date, title_size)+title_size
         text(x+split_x-w, y, date, title_size, rgba(default_color, 1))
 
-
-        -- title
-        for idx = 1, #title_lines do
-            text(x+split_x, y, title_lines[idx], title_size, rgba(default_color,1))
-            y = y + title_size
-        end
-        y = y + 3
-
+        y = y + title_size + 3
 
         -- time
         local time
@@ -176,14 +171,7 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
             text(x+split_x-w, y, time, time_size, rgba(default_color,.8))
         end
 
-
-        -- subtitle
-        for idx = 1, #subtitle_lines do
-            text(x+split_x, y, subtitle_lines[idx], info_size, rgba(default_color,1))
-            y = y + info_size
-        end
-        y = y + 3
-
+        y = y + time_size + 3
 
         -- weekday
         local wday = talk.start_weekday
@@ -191,12 +179,30 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
         text(x+split_x-w, y, wday, info_size, rgba(default_color, .8))
 
 
+        y = first_line_y
+
+        -- title
+        for idx = 1, #title_lines do
+            text(x+split_x, y, title_lines[idx], title_size, rgba(default_color,1))
+            y = y + title_size
+        end
+        y = y + 3
+
+
+        -- subtitle
+        for idx = 1, #subtitle_lines do
+            text(x+split_x, y, subtitle_lines[idx], info_size, rgba(default_color,1))
+            y = y + info_size
+        end
+        y = y + 6
+
+
         -- info
         for idx = 1, #info_lines do
             text(x+split_x, y, info_lines[idx], info_size, rgba(default_color,.8))
             y = y + info_size
         end
-        
+
         y = y + 40
     end
 
