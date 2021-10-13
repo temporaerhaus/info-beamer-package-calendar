@@ -5,11 +5,9 @@
     "repository": "https://github.com/verschwoerhaus/info-beamer-package-calendar",
     "platforms": ["pi/epoch-1", "pi/epoch-2"],
     "nesting": {
-      "parents": [
-        "scheduled-plugin"
-      ]
+      "parents": ["scheduled-plugin"],
+      "childs": []
     },
-    "lifecycle": "alpha",
     "offline": {
       "support": "no",
       "info": "This packages needs to reach the calendar to work"

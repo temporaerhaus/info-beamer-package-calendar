@@ -41,7 +41,6 @@
     }, {
         "title": "Fahrplan URLs",
         "name": "schedule_urls",
-        "doc_link": true,
         "type": "list",
         "itemname": "URL",
         "hint": "List all fahrplan.xml (frab style). They will be merged",
