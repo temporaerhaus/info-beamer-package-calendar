@@ -76,7 +76,7 @@ def main():
 
         print >>sys.stderr, "updated schedule"
 
-        deadline = time.time() + 60*10
+        deadline = time.time() + 60*5
         while time.time() < deadline:
             time.sleep(10)
 
