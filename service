@@ -13,6 +13,10 @@ import importer
 
 config.restart_on_update()
 
+WEEKDAYS = {'de_DE': ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag']}
+
+weekdays_local = WEEKDAYS[config.locale or 'de_DE']
+
 tz = pytz.timezone(config.timezone)
 
 try:
@@ -58,6 +62,8 @@ def main():
                 abstract = event['abstract'],
                 speakers = [s for s in event['speakers'] if s],
                 start_str = event['start_str'],
+                start_date = event['start_date'],
+                start_weekday = weekdays_local[event['start_weekday']],
                 title = event['title'],
                 track = event['track'],
                 start_unix = event['start_unix'],

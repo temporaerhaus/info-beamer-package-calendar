@@ -4,14 +4,9 @@
         "network": "Has to fetch schedule from remote site"
     },
     "options": [{
-        "title": "Frab Conference Plugin",
+        "title": "Event Calendar Plugin",
         "type": "section"
-    },
-
-    {
-        "title": "Scheduling",
-        "type": "section"
-    },{
+    }, {
         "title": "Time Zone",
         "ui_width": 4,
         "name": "timezone",
@@ -28,12 +23,22 @@
         ],
         "default": "UTC"
     }, {
-        "title": "Fahrplan Urls",
+        "title": "Locale",
+        "ui_width": 4,
+        "name": "locale",
+        "type": "select",
+        "hint": "The locale for rendering weekdates",
+        "options": [
+            ["de_DE", "de_DE"],
+        ],
+        "default": "de_DE"
+    }, {
+        "title": "Fahrplan URLs",
         "name": "schedule_urls",
         "doc_link": true,
         "type": "list",
         "itemname": "Url",
-        "hint": "List all fahrplans. They will be merged",
+        "hint": "List all fahrplan.xml (frab style). They will be merged",
         "items": [{
             "title": "Url",
             "ui_width": 9,

@@ -43,6 +43,8 @@ def get_schedule(url):
             parsed_events.append(dict(
                 start = start.astimezone(pytz.utc),
                 start_str = start.strftime('%H:%M'),
+                start_weekday = start.weekday(),
+                start_date = start.strftime('%-d.%-m.'),
                 end_str = end.strftime('%H:%M'),
                 start_unix  = to_unixtimestamp(start),
                 end_unix = to_unixtimestamp(end),
