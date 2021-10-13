@@ -141,6 +141,20 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
             break
         end
 
+        -- date
+        local date = talk.start_date
+        local w = font:width(date, title_size)+title_size
+        text(x+split_x-w, y, date, title_size, rgba(default_color, 1))
+
+
+        -- title
+        for idx = 1, #title_lines do
+            text(x+split_x, y, title_lines[idx], title_size, rgba(default_color,1))
+            y = y + title_size
+        end
+        y = y + 3
+
+
         -- time
         local time
         local til = talk.start_unix - now
@@ -163,13 +177,6 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
         end
 
 
-        -- title
-        for idx = 1, #title_lines do
-            text(x+split_x, y, title_lines[idx], title_size, rgba(default_color,1))
-            y = y + title_size
-        end
-        y = y + 3
-
         -- subtitle
         for idx = 1, #subtitle_lines do
             text(x+split_x, y, subtitle_lines[idx], info_size, rgba(default_color,1))
@@ -177,12 +184,20 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
         end
         y = y + 3
 
+
+        -- weekday
+        local wday = talk.start_weekday
+        local w = font:width(wday, info_size)+info_size
+        text(x+split_x-w, y, wday, info_size, rgba(default_color, .8))
+
+
         -- info
         for idx = 1, #info_lines do
             text(x+split_x, y, info_lines[idx], info_size, rgba(default_color,.8))
             y = y + info_size
         end
-        y = y + 20
+        
+        y = y + 40
     end
 
     for now in api.frame_between(starts, ends) do
