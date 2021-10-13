@@ -59,7 +59,6 @@ def main():
                 speakers = [s for s in event['speakers'] if s],
                 start_str = event['start_str'],
                 title = event['title'],
-                group = event['group'],
                 track = event['track'],
                 start_unix = event['start_unix'],
                 end_unix = event['end_unix'],
