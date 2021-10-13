@@ -82,7 +82,6 @@ end
 
 local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
     local title_size = config.font_size or 70
-    local align = "left"
     local default_color = {helper.parse_rgb("#ffffff")}
 
     local a = anims.Area(x2 - x1, y2 - y1)
@@ -90,15 +89,11 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
     local S = starts
     local E = ends
 
-    local time_size = title_size
+    local date_size = title_size
     local info_size = math.floor(title_size * 0.8)
+    local time_size = info_size
 
-    local split_x
-    if align == "left" then
-        split_x = font:width("In 60 min", title_size)*1.5
-    else
-        split_x = 0
-    end
+    local split_x = font:width("In 60 min", title_size)*1.5
 
     local x, y = 0, 0
 
@@ -145,10 +140,10 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
 
         -- date
         local date = talk.start_date
-        local w = font:width(date, title_size)+title_size
-        text(x+split_x-w, y, date, title_size, rgba(default_color, 1))
+        local w = font:width(date, date_size)+date_size
+        text(x+split_x-w, y, date, date_size, rgba(default_color, 1))
 
-        y = y + title_size + 3
+        y = y + date_size + 3
 
         -- time
         local time
