@@ -29,7 +29,7 @@
         "type": "select",
         "hint": "The locale for rendering weekdates",
         "options": [
-            ["de_DE", "de_DE"],
+            ["de_DE", "de_DE"]
         ],
         "default": "de_DE"
     }, {
