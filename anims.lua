@@ -155,7 +155,7 @@ function M.moving_font(S, E, font, x, y, text, size, r, g, b, a)
     )
 end
 
-function M.moving_font_list(S, E, x, y, texts, size, r, g, b, a)
+function M.moving_font_list(S, E, font, x, y, texts, size, r, g, b, a)
     return move_in_move_out(S, E, x, y, 
         rotating_entry_exit(S, E, function(t)
             local alpha = 1

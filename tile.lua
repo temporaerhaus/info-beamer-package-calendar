@@ -187,7 +187,7 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
         text(x+split_x, y, info_text, info_size, rgba(default_color,.8))
         if #talk.speakers > 0 then
             local w = font:width(info_text, info_size)
-            a.add(anims.moving_font_list(S, E, x+split_x+w+5, y, talk.speakers, info_size, rgba(default_color,.8)))
+            a.add(anims.moving_font_list(S, E, font, x+split_x+w+5, y, talk.speakers, info_size, rgba(default_color,.8)))
         end
 
         y = y + 40
