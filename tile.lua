@@ -131,6 +131,7 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
         end
 
         local first_line_y = y
+        -- left area
 
         -- date
         local date
@@ -165,6 +166,7 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
         text(x+split_x-w, y, wday, info_size, rgba(default_color, .8))
 
 
+        -- right area
         y = first_line_y
 
         -- title
@@ -189,7 +191,10 @@ local function view_all_talks(starts, ends, config, x1, y1, x2, y2)
             local w = font:width(info_text, info_size)
             a.add(anims.moving_font_list(S, E, font, x+split_x+w+5, y, talk.speakers, info_size, rgba(default_color,.8)))
         end
+        y = y + info_size
 
+
+        -- for the next block
         y = y + 40
     end
 

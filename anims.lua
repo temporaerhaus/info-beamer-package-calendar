@@ -167,7 +167,7 @@ function M.moving_font_list(S, E, font, x, y, texts, size, r, g, b, a)
                 gl.rotate(rot, 1, 0, 0)
                 gl.translate(0, -size/2)
             end
-            return font:write(0, 0, text, size, r, g, b, a*alpha)
+            return font:write(0, 0, text, size, r, g, b, a * alpha)
         end)
     )
 end
