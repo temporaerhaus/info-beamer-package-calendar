@@ -1,6 +1,6 @@
 # Frab Event Calendar
 
-[![Import](https://cdn.infobeamer.com/s/img/import.png)](https://info-beamer.com/use?url=https://github.com/verschwoerhaus/info-beamer-package-calendar)
+[![Import](https://cdn.infobeamer.com/s/img/import.png)](https://info-beamer.com/use?url=https://github.com/verschwoerhaus/info-beamer-package-calendar.git%23main)
 
 * Shows currently running and upcoming events from a frab compatible event source
 
