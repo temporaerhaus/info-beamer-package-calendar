@@ -2,7 +2,7 @@
     "name": "Frab based event calendar",
     "author": "robbi5 <infobeamer@robbi5.de>",
     "desc": "Frab based event calendar plugin for the scheduled player",
-    "repository": "https://github.com/verschwoerhaus/info-beamer-package-calendar",
+    "repository": "https://github.com/temporaerhaus/info-beamer-package-calendar",
     "platforms": ["pi/epoch-1", "pi/epoch-2"],
     "nesting": {
       "parents": ["scheduled-plugin"],
